@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.acv.marvel"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+kapt {
+    generateStubs = true
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation rootProject.ext.dependencies.appCompatv7
+    implementation rootProject.ext.dependencies.design
+    implementation rootProject.ext.dependencies.constraint
+
+    implementation rootProject.ext.dependencies.retrofit
+    implementation rootProject.ext.dependencies.retrofitJson
+
+    implementation rootProject.ext.dependencies.okHttp
+    implementation rootProject.ext.dependencies.logginInterceptor
+
+    kapt rootProject.ext.dependencies.daggerCompiler
+    kapt rootProject.ext.dependencies.daggerAndroidCompiler
+    implementation rootProject.ext.dependencies.daggerAndroid
+    implementation rootProject.ext.dependencies.daggerAndroidSupport
+    implementation rootProject.ext.dependencies.dagger
+
+    compile 'io.arrow-kt:arrow-core:0.6.0'
+    compile 'io.arrow-kt:arrow-typeclasses:0.6.0'
+    compile 'io.arrow-kt:arrow-instances:0.6.0'
+    compile 'io.arrow-kt:arrow-syntax:0.6.0'
+    kapt    'io.arrow-kt:arrow-annotations-processor:0.6.0'
+
+    kapt rootProject.ext.dependencies.lifecycleCompiler
+    implementation rootProject.ext.dependencies.lifecycle
+    implementation rootProject.ext.dependencies.lifecycleExtensions
+
+    testImplementation rootProject.ext.testDependencies.junit
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}

@@ -1,0 +1,48 @@
+allprojects {
+    ext {
+        supportLibraryVersion = "27.0.2"
+        constraintLibraryVersion = "1.0.2"
+        dagger = "2.14.1"
+        okHttp = "3.8.0"
+        anko = "0.10.1"
+        arch_version = "1.1.0"
+
+        testDependencies = [
+                junit        : "junit:junit:4.12",
+                hamcrest     : "org.hamcrest:hamcrest-library:1.3",
+                mockito      : "org.mockito:mockito-core:1.10.19",
+                mockitoKotlin: "com.nhaarman:mockito-kotlin:1.4.0"
+        ]
+
+        dependencies = [
+                annotations          : "com.android.support:support-annotations:$supportLibraryVersion",
+                appCompatv7          : "com.android.support:appcompat-v7:$supportLibraryVersion",
+                design               : "com.android.support:design:$supportLibraryVersion",
+                constraint           : "com.android.support.constraint:constraint-layout:1.0.2",
+                vector               : "com.android.support:support-vector-drawable:$supportLibraryVersion",
+
+                retrofit             : "com.squareup.retrofit2:retrofit:2.3.0",
+                retrofitJson         : "com.squareup.retrofit2:converter-gson:2.3.0",
+
+                okHttp               : "com.squareup.okhttp3:okhttp:$okHttp",
+                logginInterceptor    : "com.squareup.okhttp3:logging-interceptor:$okHttp",
+
+                daggerCompiler       : "com.google.dagger:dagger-compiler:$dagger",
+                dagger               : "com.google.dagger:dagger:$dagger",
+                daggerAndroid        : "com.google.dagger:dagger-android:$dagger",
+                daggerAndroidSupport : "com.google.dagger:dagger-android-support:$dagger",
+                daggerAndroidCompiler: "com.google.dagger:dagger-android-processor:$dagger",
+
+                lifecycle            : "android.arch.lifecycle:runtime:$arch_version",
+                lifecycleExtensions  : "android.arch.lifecycle:extensions:$arch_version",
+                lifecycleCompiler    : "android.arch.lifecycle:compiler:$arch_version",
+
+                coroutinesAndroid    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.17",
+
+                log                  : "com.jakewharton.timber:timber:4.6.0",
+
+                gson                 : "com.google.code.gson:gson:2.8.1",
+
+        ]
+    }
+}
