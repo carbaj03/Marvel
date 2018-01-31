@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import arrow.core.Either
 import com.acv.marvel.R
 
 inline fun <reified T : Fragment> AppCompatActivity.load(vararg args: Pair<String, String>) =

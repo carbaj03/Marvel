@@ -1,13 +1,13 @@
-package com.acv.marvel.app.view;
+package com.acv.marvel.presentation;
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 
 class MarvelViewModel : ViewModel() {
-    private lateinit var skills: MutableLiveData<List<Superhero>>
+    private lateinit var superheroes: MutableLiveData<List<Superhero>>
 
-    fun getSkillDetail(): LiveData<List<Superhero>> = MutableLiveData()
+    fun getSuperheroes(): LiveData<List<Superhero>> = MutableLiveData()
 }
 
 data class Superhero(

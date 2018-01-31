@@ -3,6 +3,7 @@ package com.acv.marvel.app.view
 import android.support.v7.app.AppCompatActivity
 import com.acv.marvel.R
 import com.acv.marvel.app.viewModelProviders
+import com.acv.marvel.presentation.MarvelViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
