@@ -4,15 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.acv.marvel.app.inflate
+import com.acv.marvel.presentation.ItemVisitable
+import com.acv.marvel.presentation.SuperHero
 
 typealias SuperHeroAdapter = Adapter<SuperHeroViewHolder, SuperHero>
 
 abstract class ViewHolder<in M>(view: View) : RecyclerView.ViewHolder(view) {
     abstract fun bind(model: M)
-}
-
-interface ItemVisitable {
-    fun type(): Int
 }
 
 open class Adapter<VH : ViewHolder<M>, in M : ItemVisitable>(

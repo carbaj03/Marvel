@@ -1,10 +1,14 @@
 package com.acv.marvel.app.view
 
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.acv.marvel.R
+import com.acv.marvel.app.`do`
+import com.acv.marvel.app.observe
 import com.acv.marvel.app.viewModelProviders
 import com.acv.marvel.presentation.MarvelViewModel
+import com.acv.marvel.presentation.SuperHero
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
@@ -20,7 +24,15 @@ class MarvelsFragment : BaseFragment() {
 
     override fun onCreate() {
         configToolbar(getString(R.string.title_marvel))
+        setupRecyclerView()
+        observe { model.getSuperheroes() } `do` { superHeroAdapter.add(it) }
     }
+
+    private fun setupRecyclerView() =
+            with(rvMarvel) {
+                layoutManager = LinearLayoutManager(context)
+                adapter = superHeroAdapter
+            }
 
     private fun configToolbar(newTitle: String) =
             with(activity as AppCompatActivity) {
