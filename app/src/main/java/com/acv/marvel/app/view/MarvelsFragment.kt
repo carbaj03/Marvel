@@ -1,11 +1,16 @@
-package com.acv.marvel.app
+package com.acv.marvel.app.view
 
 import android.support.v7.app.AppCompatActivity
 import com.acv.marvel.R
+import com.acv.marvel.app.viewModelProviders
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
 class MarvelsFragment : BaseFragment() {
+
+    private val model
+            by lazy { viewModelProviders<MarvelViewModel>() }
+
     override fun getLayout() =
             R.layout.fragment_list
 

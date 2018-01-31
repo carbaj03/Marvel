@@ -11,7 +11,7 @@ interface MarvelClient {
     fun getMarvel(): Call<Superhero>
 }
 
-class Superhero(
+data class Superhero(
         @SerializedName("name") val name: String,
         @SerializedName("photo") val photo: String,
         @SerializedName("realName") val realName: String,

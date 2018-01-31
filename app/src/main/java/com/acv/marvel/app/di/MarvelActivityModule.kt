@@ -1,6 +1,6 @@
 package com.acv.marvel.app.di
 
-import com.acv.marvel.app.MarvelActivity
+import com.acv.marvel.app.view.MarvelActivity
 import dagger.Module
 import dagger.Provides
 

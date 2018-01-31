@@ -1,10 +1,12 @@
 package com.acv.marvel.app
 
+import android.app.Activity
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,8 +29,21 @@ inline fun <reified T : Fragment> createFragment(vararg args: Pair<String, Strin
         }
 
 
-inline fun <reified T : ViewModel> FragmentActivity.viewModelProviders(): T =
-        ViewModelProviders.of(this).get(T::class.java)
-
 infix fun ViewGroup.inflate(res: Int) =
         LayoutInflater.from(context).inflate(res, this, false)
+
+
+typealias Obs<T> = ((T) -> Unit)
+typealias Obs2<T> = (Obs<T>) -> Unit
+
+infix fun <M, T : M> Fragment.observe(f: () -> LiveData<T>): Obs2<T> =
+        { o: (T) -> Unit -> f().observe(this, Observer { o(it!!) }) }
+
+infix fun <T> Obs2<T>.`do`(f: Obs<T>) =
+        this({ f(it) })
+
+inline fun <reified T : ViewModel> AppCompatActivity.viewModelProviders(): T =
+        ViewModelProviders.of(this).get(T::class.java)
+
+inline fun <reified T : ViewModel> Fragment.viewModelProviders(): T =
+        ViewModelProviders.of(this).get(T::class.java)

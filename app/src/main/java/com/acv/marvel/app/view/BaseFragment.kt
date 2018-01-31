@@ -1,4 +1,4 @@
-package com.acv.marvel.app
+package com.acv.marvel.app.view
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
