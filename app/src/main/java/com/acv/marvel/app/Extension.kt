@@ -11,7 +11,9 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.acv.marvel.R
+import com.squareup.picasso.Picasso
 
 inline fun <reified T : Fragment> AppCompatActivity.load(vararg args: Pair<String, String>) =
         with(supportFragmentManager) {
@@ -63,3 +65,6 @@ inline fun <reified T : ViewModel> AppCompatActivity.viewModelProviders(): T =
 
 inline fun <reified T : ViewModel> Fragment.viewModelProviders(): T =
         ViewModelProviders.of(this).get(T::class.java)
+
+fun ImageView.load(path: String) =
+        Picasso.with(context).load(path).error(R.drawable.ic_android_black_24dp).into(this)

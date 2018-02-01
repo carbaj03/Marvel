@@ -1,15 +1,16 @@
 package com.acv.marvel.app.view
 
 import android.view.View
-import android.widget.TextView
-import com.acv.marvel.R
-import com.acv.marvel.presentation.SuperHero
+import com.acv.marvel.app.load
+import com.acv.marvel.presentation.SuperHeroView
+import kotlinx.android.synthetic.main.item_superhero.view.*
 
-class SuperHeroViewHolder(view: View) : ViewHolder<SuperHero>(view) {
-    var tvName: TextView = view.findViewById(R.id.tvName)
+class SuperHeroViewHolder(view: View) : ViewHolder<SuperHeroView>(view) {
 
-    override fun bind(model: SuperHero) =
-            with(model) {
-                tvName.text = name
-            }
+    override fun bind(model: SuperHeroView) = with(itemView) {
+        with(model) {
+            tvName.text = name
+            ivIcon.load(model.photo)
+        }
+    }
 }

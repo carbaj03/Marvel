@@ -38,7 +38,7 @@ allprojects {
                 lifecycleCompiler    : "android.arch.lifecycle:compiler:$arch_version",
 
                 coroutinesAndroid    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.17",
-
+                picasso             : "com.squareup.picasso:picasso:2.5.2",
                 log                  : "com.jakewharton.timber:timber:4.6.0",
 
                 gson                 : "com.google.code.gson:gson:2.8.1",

@@ -8,4 +8,6 @@ import dagger.Provides
 class MarvelActivityModule {
     @Provides
     fun provideAccountView(marvelActivity: MarvelActivity): MarvelActivity = marvelActivity
+
+
 }

@@ -2,9 +2,11 @@ package com.acv.marvel.domain
 
 
 data class SuperHero(
-        val id: String,
         val name: String,
-        val photo: String? = null,
-        val isAvenger: Boolean,
-        val description: String
+        val photo: String,
+        val realName: String,
+        val height: String,
+        val power: String,
+        val abilities: String,
+        val groups: String
 )

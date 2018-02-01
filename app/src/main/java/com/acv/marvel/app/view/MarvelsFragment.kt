@@ -8,7 +8,7 @@ import com.acv.marvel.app.`do`
 import com.acv.marvel.app.observe
 import com.acv.marvel.app.viewModelProviders
 import com.acv.marvel.presentation.MarvelViewModel
-import com.acv.marvel.presentation.SuperHero
+import com.acv.marvel.presentation.SuperHeroView
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
@@ -26,7 +26,10 @@ class MarvelsFragment : BaseFragment() {
         configToolbar(getString(R.string.title_marvel))
         setupRecyclerView()
         observe { model.getSuperheroes() } `do` { superHeroAdapter.add(it) }
+        observe { model.getError() } `do` { showError()}
     }
+
+    private fun showError() = Toast.makeText(context, "error", Toast.LENGTH_LONG).show()
 
     private fun setupRecyclerView() =
             with(rvMarvel) {
@@ -44,7 +47,7 @@ class MarvelsFragment : BaseFragment() {
                 }
             }
 
-    private fun goToDetail(superHero: SuperHero) =
+    private fun goToDetail(superHero: SuperHeroView) =
             Toast.makeText(context, "Click", Toast.LENGTH_LONG).show()
 //            load<SkillDetailActivity>(SKILL to superHero.id, TITLE to superHero.name)
 
