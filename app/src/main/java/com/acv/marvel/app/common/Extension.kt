@@ -1,18 +1,18 @@
-package com.acv.marvel.app
+package com.acv.marvel.app.common
 
 import android.app.Activity
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.acv.marvel.R
+import com.acv.marvel.app.view.common.CircleTransform
 import com.squareup.picasso.Picasso
 
 inline fun <reified T : Fragment> AppCompatActivity.load(vararg args: Pair<String, String>) =
@@ -51,20 +51,18 @@ inline fun <reified T : Fragment> createFragment(vararg args: Pair<String, Strin
 infix fun ViewGroup.inflate(res: Int) =
         LayoutInflater.from(context).inflate(res, this, false)
 
-typealias Obs<T> = ((T) -> Unit)
-typealias Obs2<T> = (Obs<T>) -> Unit
 
-infix fun <M, T : M> Fragment.observe(f: () -> LiveData<T>): Obs2<T> =
-        { o: (T) -> Unit -> f().observe(this, Observer { o(it!!) }) }
+fun ImageView.loadCircle(path: String) =
+        Picasso.with(context).load(path).transform(CircleTransform()).error(R.drawable.ic_android_black_24dp).into(this)
 
-infix fun <T> Obs2<T>.`do`(f: Obs<T>) =
-        this({ f(it) })
 
-inline fun <reified T : ViewModel> AppCompatActivity.viewModelProviders(): T =
-        ViewModelProviders.of(this).get(T::class.java)
+fun View.gone() {
+    this.visibility = View.GONE
+}
 
-inline fun <reified T : ViewModel> Fragment.viewModelProviders(): T =
-        ViewModelProviders.of(this).get(T::class.java)
+fun View.show() {
+    this.visibility = View.VISIBLE
+}
 
-fun ImageView.load(path: String) =
-        Picasso.with(context).load(path).error(R.drawable.ic_android_black_24dp).into(this)
+fun Context.color(color: Int) =
+        ContextCompat.getColor(this, color)

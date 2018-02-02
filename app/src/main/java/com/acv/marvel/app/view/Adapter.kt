@@ -3,11 +3,12 @@ package com.acv.marvel.app.view
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import com.acv.marvel.app.inflate
+import com.acv.marvel.app.common.inflate
+import com.acv.marvel.app.view.marvel.MarvelViewHolder
 import com.acv.marvel.presentation.ItemVisitable
 import com.acv.marvel.presentation.SuperHeroView
 
-typealias SuperHeroAdapter = Adapter<SuperHeroViewHolder, SuperHeroView>
+typealias SuperHeroAdapter = Adapter<MarvelViewHolder, SuperHeroView>
 
 abstract class ViewHolder<in M>(view: View) : RecyclerView.ViewHolder(view) {
     abstract fun bind(model: M)

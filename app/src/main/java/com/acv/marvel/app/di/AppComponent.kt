@@ -2,6 +2,9 @@ package com.acv.marvel.app.di
 
 import android.app.Application
 import com.acv.marvel.app.App
+import com.acv.marvel.app.di.module.ActivityBuilderModule
+import com.acv.marvel.app.di.module.ApiModule
+import com.acv.marvel.app.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -11,10 +14,10 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
     ActivityBuilderModule::class,
-    AppModule::class
+    AppModule::class,
+    ApiModule::class
 ])
 interface AppComponent {
-
     @Component.Builder
     interface Builder {
         @BindsInstance

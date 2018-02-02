@@ -2,4 +2,5 @@
     <string name="app_name">Marvel</string>
 
     <string name="title_marvel">Marvel</string>
+    <string name="empty">empty</string>
 </resources>
