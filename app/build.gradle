@@ -59,16 +59,17 @@ dependencies {
     implementation 'co.metalab.asyncawait:asyncawait:1.0.0'
 
     testImplementation rootProject.ext.testDependencies.junit
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
     testImplementation rootProject.ext.testDependencies.mockwebserver
     testImplementation rootProject.ext.testDependencies.mockitoKotlin
     testImplementation 'commons-io:commons-io:2.4'
     testImplementation 'com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.4'
-    androidTestImplementation 'com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.4'
 
+    androidTestImplementation 'com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.4'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation 'org.mockito:mockito-android:2.9.0'
-    androidTestImplementation 'org.mockito:mockito-core:2.10.0'
+    androidTestImplementation 'org.mockito:mockito-core:2.19.0'
     androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }

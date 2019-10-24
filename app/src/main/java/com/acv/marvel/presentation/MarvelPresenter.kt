@@ -38,12 +38,5 @@ class MarvelPresenter(
 
     fun onSuperHeroClicked(superHero: SuperHeroView) = view?.showSelect(superHero)
 
-    interface View {
-        fun hideLoading()
-        fun showSuperHeroes(superHeroes: List<SuperHeroView>)
-        fun showLoading()
-        fun showEmptyCase()
-        fun showSelect(superHero: SuperHeroView)
-        fun showError(error: String)
-    }
+  
 }

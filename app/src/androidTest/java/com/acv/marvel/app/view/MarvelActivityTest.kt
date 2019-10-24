@@ -51,9 +51,9 @@ class MarvelActivityTest {
 
         RecyclerViewInteraction.onRecyclerView<SuperHero>(withId(R.id.rvMarvel))
                 .withItems(superHeroes.get())
-                .check({ superHero, view, e ->
+                .check { superHero, view, e ->
                     matches(hasDescendant(withText(superHero.name))).check(view, e)
-                })
+                }
     }
 
 
